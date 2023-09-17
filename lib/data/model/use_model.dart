@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class UserModel {
@@ -6,6 +7,7 @@ class UserModel {
   final String email;
   final String phone;
   final String password;
+  final String signupDate;
 
   const UserModel({
     this.id,
@@ -13,6 +15,7 @@ class UserModel {
     required this.email,
     required this.phone,
     required this.password,
+    required this.signupDate,
   });
 
   // UserModel.fromSnapShot(DataSnapshot snap) {
@@ -24,10 +27,25 @@ class UserModel {
   // }
   toJson() {
     return {
-      "Name": name,
-      "Email": email,
-      "Phone": phone,
-      "Password": password,
+      "name": name,
+      "email": email,
+      "phone": phone,
+      "password": password,
+      "signupDate": signupDate,
     };
+  }
+
+  //fatch data
+  factory UserModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    final data = document.data()!;
+    return UserModel(
+      id: document.id,
+      name: data["name"],
+      email: data["email"],
+      phone: data["phone"],
+      password: data["password"],
+      signupDate: data["signupDate"],
+    );
   }
 }

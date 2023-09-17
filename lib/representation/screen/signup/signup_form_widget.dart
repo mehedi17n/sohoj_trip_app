@@ -10,6 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:intl/intl.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:sohoj_trip_app/data/model/use_model.dart';
 import 'package:sohoj_trip_app/global/global.dart';
@@ -105,6 +106,8 @@ class _SignUpFormWidget extends State<SignUpFormWidget> {
   }
 
   Future saveDataToFirestore(User currentUser) async {
+    final signUpDate = DateTime.now();
+    final formattedDate = DateFormat('dd MMMM yyyy').format(signUpDate);
     FirebaseFirestore.instance.collection("Users").doc(currentUser.uid).set({
       "id": currentUser.uid,
       "name": nameTextEditingController.text.trim(),
@@ -112,6 +115,7 @@ class _SignUpFormWidget extends State<SignUpFormWidget> {
       "email": currentUser.email,
       "phone": phoneTextEditingController.text.trim(),
       "password": passwordTextEditingController.text.trim(),
+      "signupDate": formattedDate,
     });
 
     //save data locally

@@ -7,6 +7,7 @@ import 'package:sohoj_trip_app/representation/screen/hotels_screen.dart';
 import 'package:sohoj_trip_app/representation/screen/intro_screen.dart';
 import 'package:sohoj_trip_app/representation/screen/main_app.dart';
 import 'package:sohoj_trip_app/representation/screen/rooms_screen.dart';
+import 'package:sohoj_trip_app/representation/screen/search_tour.dart';
 import 'package:sohoj_trip_app/representation/screen/select_date_screen.dart';
 import 'package:sohoj_trip_app/representation/screen/welcome/welcome_screen.dart';
 
@@ -14,7 +15,8 @@ import 'data/model/hotel_model.dart';
 import 'data/model/room_model.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  IntroScreen.routeName: (context) => const IntroScreen(),
+  IntroScreen.routeName: (context) => IntroScreen(),
+  SearchTourPage.routeName: (context) => SearchTourPage(),
   MainApp.routeName: (context) => MainApp(),
   HotelsScreen.routeName: (context) => HotelsScreen(),
   SelectDateScreen.routeName: (context) => SelectDateScreen(),

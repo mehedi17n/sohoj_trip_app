@@ -10,6 +10,9 @@ import '../../core/helpers/asset_helper.dart';
 import '../widgets/item_options.dart';
 
 class SearchTourPage extends StatefulWidget {
+  const SearchTourPage({Key? key}) : super(key: key);
+  static const String routeName = '/search_tour_page';
+
   @override
   _SearchTourPage createState() => _SearchTourPage();
 }

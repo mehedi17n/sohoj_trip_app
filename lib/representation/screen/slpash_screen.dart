@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sohoj_trip_app/global/global.dart';
 import 'package:sohoj_trip_app/representation/screen/main_app.dart';
+import 'package:sohoj_trip_app/representation/screen/search_tour.dart';
 import 'package:sohoj_trip_app/representation/screen/welcome/welcome_screen.dart';
 import '../../core/helpers/asset_helper.dart';
 import '../../core/helpers/image_helper.dart';
@@ -28,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final ignoreIntro = LocalStorageHelper.getValue('ignoreIntro') as bool?;
     await Future.delayed(Duration(milliseconds: 800));
     if (firebaseAuth.currentUser != null) {
-      Navigator.of(context).pushNamed(MainApp.routeName);
+      Navigator.of(context).pushNamed(SearchTourPage.routeName);
     } else {
       if (ignoreIntro ?? false) {
         Navigator.of(context).pushNamed(WelcomeScreen.routeName);
